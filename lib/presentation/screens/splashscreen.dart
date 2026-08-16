@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:messhubapp/presentation/screens/authentication/signup.dart';
+import 'package:messhubapp/presentation/widgets/colors.dart';
+import 'package:messhubapp/presentation/widgets/utilities.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -60,38 +62,18 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF121826), Color(0xFF1F2A44), Color(0xFF0F172A)],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: splashgradient),
         child: Stack(
           children: [
             Positioned(
               top: -80,
               right: -60,
-              child: Container(
-                width: 220,
-                height: 220,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xFF9D4EDD).withOpacity(0.18),
-                ),
-              ),
+              child: PurpleContainer(height: 220, width: 220),
             ),
             Positioned(
-              bottom: -100,
+              bottom: -80,
               left: -40,
-              child: Container(
-                width: 260,
-                height: 260,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color(0xFF3CCF91).withOpacity(0.18),
-                ),
-              ),
+              child: PurpleContainer(height: 260, width: 260),
             ),
             Center(
               child: AnimatedBuilder(
@@ -113,52 +95,46 @@ class _SplashScreenState extends State<SplashScreen>
                       height: 140,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFFEF5350), Color(0xFFFFA726)],
+                        gradient: LinearGradient(
+                          colors: [accentOrange, accentYellow],
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFFEF5350).withOpacity(0.45),
+                            color: accentOrange,
                             blurRadius: 30,
-                            offset: const Offset(0, 16),
+                            offset: const Offset(0, 20),
                           ),
                         ],
                       ),
-                      child: const Icon(
-                        Icons.takeout_dining,
-                        size: 72,
-                        color: Colors.white,
-                      ),
+                      child: Icon(Icons.takeout_dining, size: 72, color: white),
                     ),
-                    const SizedBox(height: 28),
-                    const Text(
+                    height25,
+                    Text(
                       'Mess Hub',
                       style: TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 1.2,
-                        color: Colors.white,
+                        color: white,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    height10,
                     Text(
                       'Fresh meals. Fast delivery.',
                       style: TextStyle(
                         fontSize: 15,
                         letterSpacing: 1.1,
-                        color: Colors.white.withOpacity(0.75),
+                        color: white.withValues(alpha: 0.75),
                       ),
                     ),
-                    const SizedBox(height: 36),
+                    height35,
                     SizedBox(
                       width: size.width * 0.38,
-                      child: const LinearProgressIndicator(
+                      child: LinearProgressIndicator(
                         minHeight: 6,
                         borderRadius: BorderRadius.all(Radius.circular(12)),
-                        backgroundColor: Colors.white24,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFFFFB703),
-                        ),
+                        backgroundColor: white,
+                        valueColor: AlwaysStoppedAnimation<Color>(accentYellow),
                       ),
                     ),
                   ],
@@ -167,6 +143,24 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class PurpleContainer extends StatelessWidget {
+  final height;
+  final width;
+  const PurpleContainer({super.key, required this.height, required this.width});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Color(0xFF9D4EDD).withValues(alpha: 0.18),
       ),
     );
   }

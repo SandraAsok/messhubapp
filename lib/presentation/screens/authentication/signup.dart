@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:messhubapp/presentation/screens/authentication/signin.dart';
 import 'package:messhubapp/presentation/screens/home.dart';
+import 'package:messhubapp/presentation/widgets/colors.dart';
+import 'package:messhubapp/presentation/widgets/utilities.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -29,45 +31,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final Color primaryDark = const Color(0xFF0F172A);
-    final Color primaryBlue = const Color(0xFF1D4ED8);
-    final Color accentOrange = const Color(0xFFF97316);
-    final Color accentGreen = const Color(0xFF22C55E);
-    final Color softWhite = const Color(0xFFE2E8F0);
 
     return Scaffold(
       backgroundColor: primaryDark,
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF0F172A), Color(0xFF111827), Color(0xFF0B1120)],
-          ),
-        ),
+        decoration: BoxDecoration(gradient: primarygradient),
         child: SafeArea(
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 28),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 16),
+                  height10,
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Container(
-                      padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.08),
+                        color: Colors.white.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.15),
+                          color: Colors.white.withValues(alpha: 0.15),
                         ),
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.fastfood_rounded,
                         size: 28,
-                        color: Color(0xFFF97316),
+                        color: accentYellow,
                       ),
                     ),
                   ),
@@ -83,7 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Text(
                     'Join MessHub and get started with a delicious experience.',
                     style: theme.textTheme.bodyLarge?.copyWith(
-                      color: softWhite.withOpacity(0.8),
+                      color: softWhite.withValues(alpha: 0.8),
                       height: 1.5,
                     ),
                   ),
@@ -108,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Expanded(
                         child: Container(
                           height: 1,
-                          color: Colors.white.withOpacity(0.15),
+                          color: Colors.white.withValues(alpha: 0.15),
                         ),
                       ),
                       Padding(
@@ -116,14 +106,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Text(
                           'or sign up with email',
                           style: theme.textTheme.labelLarge?.copyWith(
-                            color: Colors.white.withOpacity(0.7),
+                            color: Colors.white.withValues(alpha: 0.7),
                           ),
                         ),
                       ),
                       Expanded(
                         child: Container(
                           height: 1,
-                          color: Colors.white.withOpacity(0.15),
+                          color: Colors.white.withValues(alpha: 0.15),
                         ),
                       ),
                     ],
@@ -133,9 +123,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.06),
+                      color: Colors.white.withValues(alpha: 0.06),
                       borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: Colors.white.withOpacity(0.12)),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.12),
+                      ),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

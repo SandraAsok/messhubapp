@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:messhubapp/presentation/screens/authentication/signup.dart';
+import 'package:messhubapp/presentation/widgets/colors.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -110,10 +111,6 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final Color primaryDark = const Color(0xFF0F172A);
-    final Color primaryBlue = const Color(0xFF1D4ED8);
-    final Color accentOrange = const Color(0xFFF97316);
-    final Color softWhite = const Color(0xFFE2E8F0);
 
     return Scaffold(
       backgroundColor: primaryDark,
